@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Módulo Matrícula</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+  <body>
+    {% for message in messages %}
+        <div class = "alert alert-primary" role="alert">                    
+            {{ message }}
+        </div>                
+    {% endfor %} 
+    <h1>Home Matrícula</h1>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <br>
+        <form action="{% url 'matricular' %}" method="post" class="form-control">
+            {% csrf_token %}
+            <label>Curso</label>
+                <br>
+                <select id="aluno" name="aluno" required>
+                    <option value="">Selecione um aluno</option>
+                        {% for aluno in alunos %}
+                            <option value="{{ aluno.id }}">
+                                {{ aluno.nome }}
+                            </option>
+                        {% endfor %}
+                </select> 
+            <br>
+            <label>Curso</label>
+            <br>
+            <select id="curso" name="curso" required>
+                <option value="">Selecione um curso</option>
+                    {% for curso in cursos %}
+                        <option value="{{ curso.id }}">
+                            {{ curso.nome }}
+                        </option>
+                    {% endfor %}
+            </select> 
+            <button type="submit">Matricular</button>
+        </form>
+  </body>

@@ -10,3 +10,11 @@ class Matricula(models.Model):
 
     def __str__(self):
         return f"{self.aluno} - {self.curso}"
+    
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['aluno', 'curso'],
+                name='unique_matricula_aluno_curso'
+            )
+        ]
