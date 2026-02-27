@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +22,18 @@
         <br>
         <input type="email" id="email" name="email" value="" placeholder="Digite um email válido" required>
         <br>
+        <label>Curso</label>
+                <br>
+                <select id="curso" name="curso" required>
+                <option value="">Selecione um curso</option>
+                    {% for curso in cursos %}
+                        <option value="{{ curso.id }}">
+                            {{ curso.nome }}
+                        </option>
+                    {% endfor %}
+                </select> 
         <br>
+        <br> 
         <button type="submit" value="Cadastrar Aluno" class="btn btn-success">Cadastrar</button>        
     </form>
     <hr>
@@ -34,6 +45,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Curso</th>
                     <th scope="col">Editar</th>
                     <th escope = "col">Deletar</th>
                 </tr>
@@ -44,11 +56,12 @@
                         <tr>
                             <td>{{aluno.id}}</td>
                             <td>{{aluno.nome}}</td>     
-                            <td>{{aluno.email}}</td>                
-                            <td><a href="{% url 'editar' aluno.id %}"><button class = "btn btn-link">Editar</a></td> 
-                            <td><a href="{% url 'deletar' aluno.id %}"><button class= "btn btn-danger">Deletar</a></td> 
+                            <td>{{aluno.email}}</td>   
+                            <td>{{aluno.curso}}</td>                               
+                            <td><a href="{% url  'editar' aluno.id %}"><button class="btn btn-link">Editar</button></a></td>
+                            <td><a href="{% url  'deletar' aluno.id %}"><button class="btn btn-danger">Deletar</button></a></td>
                         </tr>                
-                <tr>
+                </tr>
                     {% endfor %}
             </tbody>
         </table>

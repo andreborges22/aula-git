@@ -22,7 +22,21 @@
         <label>Email</label>
         <br>
         <input type="email" id="email" name="email" value="{{aluno.email}}" placeholder="Digite um email válido" required>
-        <br>
+        <br>        
+        <label>Curso</label>
+        <br> 
+        <select id = "curso" name="curso">
+
+            <option value="">Selecione um curso</option>
+
+            {% for curso in cursos %}
+                <option value="{{ curso.id }}" {% if curso == aluno.curso %}selected{% endif %}>
+                    {{ curso.nome }}
+                </option>
+            {% endfor %}
+
+        </select>
+        <br> 
         <br>
         <button type="submit" value="Cadastrar Aluno" class="btn btn-success">Editar</button>        
     </form>
