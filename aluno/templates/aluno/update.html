@@ -12,6 +12,11 @@
   </body>
 </html>
 <body>
+    {% for message in messages %}
+        <div class = "alert alert-primary" role="alert">                    
+            {{ message }}
+        </div>                
+    {% endfor %} 
     <form action="{% url 'atualizar' aluno.id %}" method="post" class="form-control">
         {% csrf_token %} 
         <br>
