@@ -12,9 +12,8 @@ def home(request):
 
 def cadastrar(request):
     nome = request.POST.get("nome")
-    email = request.POST.get("email")
-    curso_id = request.POST.get("curso")
-    Aluno.objects.create(nome=nome, email=email,curso_id = curso_id)
+    email = request.POST.get("email")    
+    Aluno.objects.create(nome=nome, email=email)
     messages.success(request, f"Estudante {nome} cadastrado(a) com sucesso!")
     return redirect(home)
 

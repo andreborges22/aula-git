@@ -25,19 +25,8 @@
         <br>
         <label>Email</label>
         <br>
-        <input type="email" id="email" name="email" value="" placeholder="Digite um email válido" required>
-        <br>
-        <label>Curso</label>
-                <br>
-                <select id="curso" name="curso" required>
-                <option value="">Selecione um curso</option>
-                    {% for curso in cursos %}
-                        <option value="{{ curso.id }}">
-                            {{ curso.nome }}
-                        </option>
-                    {% endfor %}
-                </select> 
-        <br>
+        <input type="email" id="email" name="email" value="" placeholder="Digite um email válido" required>        
+        <br> 
         <br> 
         <button type="submit" value="Cadastrar Aluno" class="btn btn-success">Cadastrar</button>        
     </form>
